@@ -1,0 +1,36 @@
+# Clipboard Management
+# --------------------
+files2clip() {
+  find . -name "*.$1" -exec cat {} + | grep -v '^import' | xclip -selection clipboard
+}
+
+alias java2clip="files2clip java"
+alias py2clip="files2clip py"
+alias sh2clip="files2clip sh"
+alias pbcopy="xclip -selection clipboard"
+alias pbpaste="xclip -selection clipboard -o"
+
+# Docker Management
+# -----------------
+alias ld="lazydocker"
+alias dsp="docker system prune -f"
+
+# Git Workflow
+# ------------
+alias gpull="git checkout develop && git pull && git checkout -"
+alias gpullm="git checkout main && git pull && git checkout -"
+alias gpush="ggpush"
+alias gpurge="git branch | grep -v 'develop' | grep -v 'master' | grep -v 'main' | xargs git branch -D"
+
+# System Utilities
+# ----------------
+alias ls="ls -lhAGt"
+alias which="whence -p"
+alias catt="bat --paging=never"
+alias bat="bat --paging=never"
+
+# System Operations
+# -----------------
+alias shutdown="sudo shutdown now"
+alias reboot="sudo reboot now"
+alias restart="sudo reboot now"
